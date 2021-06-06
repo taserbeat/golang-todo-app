@@ -1,0 +1,61 @@
+{
+  "editor.formatOnSave": false,
+  "go.useLanguageServer": true,
+  "go.toolsEnvVars": {
+    "GO111MODULE": "on"
+  },
+  "gopls": {
+    "ui.documentation.hoverKind": "SynopsisDocumentation",
+    "ui.completion.usePlaceholders": true
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "[go]": {
+    "editor.snippetSuggestions": "none",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.autoIndent": "keep",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[dockercompose]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.formatOnSave": true,
+  },
+  "[sql]": {
+    "editor.formatOnSave": true,
+  }
+}
