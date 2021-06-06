@@ -2,8 +2,8 @@ package main // import "github.io/taserbeat/golang-todo-app"
 
 import (
 	"fmt"
-	"log"
 
+	"github.io/taserbeat/golang-todo-app/modules/models"
 	"github.io/taserbeat/golang-todo-app/modules/setting"
 )
 
@@ -13,5 +13,5 @@ func main() {
 	fmt.Println(setting.Config.DbName)
 	fmt.Println(setting.Config.LogFile)
 
-	log.Println("test")
+	fmt.Println(models.Db)
 }
