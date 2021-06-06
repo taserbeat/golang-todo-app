@@ -21,9 +21,14 @@ func generateHtml(w http.ResponseWriter, data interface{}, filenames ...string) 
 
 // サーバーを起動する
 func StartMainServer() (err error) {
+	// 静的ファイルのハンドラ
 	files := http.FileServer(http.Dir(setting.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))
 
+	// ルートのハンドラ
 	http.HandleFunc("/", top)
+
+	// signupハンドラ
+	http.HandleFunc("/signup", signup)
 	return http.ListenAndServe(":"+setting.Config.Port, nil)
 }
