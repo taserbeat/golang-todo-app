@@ -47,6 +47,12 @@ brew install libpq
 
 # 実行方法
 
+```bash
+go run main.go
+
+# http://localhost:3000
+```
+
 # 参考
 
 [Udemy Golang 基礎〜応用](https://www.udemy.com/course/golang-webgosql/learn/lecture/23672858#questions)

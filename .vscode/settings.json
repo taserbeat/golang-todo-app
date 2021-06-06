@@ -57,5 +57,10 @@
   },
   "[sql]": {
     "editor.formatOnSave": true,
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.suggest.insertMode": "replace",
   }
 }

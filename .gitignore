@@ -21,7 +21,7 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/go
 
-server
+main
 build/
 .DS_Store
 *.log

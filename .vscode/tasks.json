@@ -6,7 +6,7 @@
         {
             "label": "run:server",
             "type": "shell",
-            "command": "go run server.go"
+            "command": "go run main.go"
         },
         {
           "label": "compose:up",
