@@ -84,6 +84,7 @@ func authenticate(w http.ResponseWriter, r *http.Request) {
 		Name:     "_cookie",
 		Value:    session.UUID,
 		HttpOnly: true,
+		SameSite: http.SameSiteLaxMode,
 	}
 	http.SetCookie(w, &cookie)
 
