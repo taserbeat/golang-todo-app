@@ -1,9 +1,9 @@
 {
   "editor.formatOnSave": false,
   "go.useLanguageServer": true,
-  "go.toolsEnvVars": {
-    "GO111MODULE": "on"
-  },
+  // "go.toolsEnvVars": {
+  //   "GO111MODULE": "on"
+  // },
   "gopls": {
     "ui.documentation.hoverKind": "FullDocumentation",
     "ui.completion.usePlaceholders": true

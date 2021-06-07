@@ -4,9 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "run:server",
+            "label": "go:run",
             "type": "shell",
-            "command": "go run main.go"
+            "command": "go run main.go",
+        },
+        {
+          "label": "go:build",
+          "type": "shell",
+          "command": "go build -o build/main",
         },
         {
           "label": "compose:up",
