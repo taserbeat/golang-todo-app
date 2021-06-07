@@ -5,7 +5,7 @@
     "GO111MODULE": "on"
   },
   "gopls": {
-    "ui.documentation.hoverKind": "SynopsisDocumentation",
+    "ui.documentation.hoverKind": "FullDocumentation",
     "ui.completion.usePlaceholders": true
   },
   "[go.mod]": {
