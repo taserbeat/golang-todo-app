@@ -47,11 +47,56 @@ brew install libpq
 
 # 実行方法
 
+1. Docker でデータベースを起動する
+
+```bash
+docker-compose up -d --build
+```
+
+2. アプリケーションを実行する
+
 ```bash
 go run main.go
-
-# http://localhost:3000
 ```
+
+or
+
+```bash
+go build -o build/main
+./build/main
+```
+
+3. アプリケーションの URL にアクセスし、アカウントを登録する
+
+http://localhost:3000/signup
+
+4. ログインする
+
+http://localhost:3000/login
+
+5. Todo データを登録したり、更新したり、削除したりする
+
+6. データベースのデータは専用の Web アプリからでも見れる
+
+http://localhost:8081
+
+以上
+
+# 終了方法
+
+1. アプリケーションの終了
+
+実行したターミナルで`Ctrl + c`を押すことで終了できる。
+
+2. Docker のクリーンアップ
+
+docker-compose を終了し、リソースも削除する。
+
+```bash
+docker-compose down --rmi all --volumes
+```
+
+以上
 
 # 参考
 
