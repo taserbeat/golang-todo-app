@@ -23,6 +23,7 @@ const (
 func init() {
 	Db, err = sql.Open(
 		setting.Config.SQLDriver,
+    // sslmode=[disable | require]
 		fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable", setting.Config.DbHost, setting.Config.DbPort, setting.Config.DbUser, setting.Config.DbPassword, setting.Config.DbName))
 	if err != nil {
 		log.Fatalln(err)
