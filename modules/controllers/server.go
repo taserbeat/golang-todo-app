@@ -3,6 +3,8 @@ package controllers
 import (
 	"fmt"
 	"net/http"
+	"regexp"
+	"strconv"
 	"text/template"
 
 	"github.io/taserbeat/golang-todo-app/modules/models"
@@ -33,6 +35,26 @@ func session(w http.ResponseWriter, r *http.Request) (sess models.Session, err e
 	return sess, err
 }
 
+var validPath = regexp.MustCompile("^/todos/(edit|update|delete)/([0-9]+)$")
+
+func parseURL(fn func(http.ResponseWriter, *http.Request, int)) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// /todos/edit/1
+		q := validPath.FindStringSubmatch(r.URL.Path)
+		if q == nil {
+			http.NotFound(w, r)
+			return
+		}
+		qi, err := strconv.Atoi(q[2])
+		if err != nil {
+			http.NotFound(w, r)
+			return
+		}
+
+		fn(w, r, qi)
+	}
+}
+
 // サーバーを起動する
 func StartMainServer() (err error) {
 	// 静的ファイルのハンドラ
@@ -56,6 +78,21 @@ func StartMainServer() (err error) {
 
 	// indexハンドラ (要ログイン)
 	http.HandleFunc("/todos", index)
+
+	// 新規todo作成ページ用ハンドラ (要ログイン)
+	http.HandleFunc("/todos/new", todoNew)
+
+	// 新規todoの作成APIハンドラ (要ログイン)
+	http.HandleFunc("/todos/save", todoSave)
+
+	// todoの編集用ページ (要ログイン)
+	http.HandleFunc("/todos/edit/", parseURL(todoEdit))
+
+	// todoの更新APIのハンドラ (要ログイン)
+	http.HandleFunc("/todos/update/", parseURL(todoUpdate))
+
+	// todoの削除APIのハンドラ (要ログイン)
+	http.HandleFunc("/todos/delete/", parseURL(todoDelete))
 
 	return http.ListenAndServe(":"+setting.Config.Port, nil)
 }
